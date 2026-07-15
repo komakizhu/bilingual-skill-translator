@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bilingual（双语技能）"
+  short_description: "创建、翻译并本地化支持中英双语检索的 Codex 技能与入口"
+  default_prompt: "使用 $bilingual-skill-creator，先在同一条助手回复中展示三种中文/英文名称与简介版本，待我选择并批准后再执行和验证。"
