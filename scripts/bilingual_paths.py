@@ -15,7 +15,7 @@ def codex_home() -> Path:
 
 
 def state_file() -> Path:
-    return codex_home() / "bilingual-skill-creator" / "state.json"
+    return codex_home() / "bilingual-skill-translator" / "state.json"
 
 
 def default_skill_root() -> Path:

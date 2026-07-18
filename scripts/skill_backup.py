@@ -17,7 +17,7 @@ def codex_home() -> Path:
 
 
 def backup_root() -> Path:
-    return codex_home() / "bilingual-skill-creator" / "backups"
+    return codex_home() / "bilingual-skill-translator" / "backups"
 
 
 def digest(path: Path) -> str:
