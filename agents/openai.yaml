@@ -1,4 +1,4 @@
 interface:
   display_name: "双语技能翻译器 (bilingual-skill-translator)"
   short_description: "创建、翻译并本地化支持中英双语检索的 Codex 技能与入口。"
-  default_prompt: "Use $bilingual-skill-translator to translate or localize a skill; default to UI version 2 unless the user selects another version, and include target-specific examples in the approval plan."
+  default_prompt: "Use $bilingual-skill-translator to translate or localize a skill; default to UI version 5 unless the user selects another version, and include target-specific examples in the approval plan."

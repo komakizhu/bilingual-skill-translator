@@ -77,6 +77,11 @@ def validate_openai_yaml(path: Path, name: str, version: str | None) -> list[str
         errors.append("版本 1 的 display_name 不应包含英文原名")
     if version == "2" and display is not None and f"({name})" not in display:
         errors.append(f"版本 2 的 display_name 必须逐字保留 ({name})")
+    if version == "5":
+        if display is not None and f"（{name}）" not in display:
+            errors.append(f"版本 5 的 display_name 必须使用全角括号逐字保留（{name}）")
+        if short is not None and not CJK_RE.search(short):
+            errors.append("版本 5 的 short_description 必须使用中文简介")
     if version == "3" and short is not None and CJK_RE.search(short):
         errors.append("版本 3 的 short_description 应使用英文简介")
     if version == "4":
@@ -110,7 +115,7 @@ def validate_translation(path: Path) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("skill_dir")
-    parser.add_argument("--version", choices=("1", "2", "3", "4"))
+    parser.add_argument("--version", choices=("1", "2", "3", "4", "5"))
     parser.add_argument("--alias", action="append", default=[])
     parser.add_argument("--require-translation", action="store_true")
     args = parser.parse_args()
