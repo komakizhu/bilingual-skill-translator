@@ -8,9 +8,9 @@
 
 - `/bilingual`
 - `$bilingual-skill-translator`
-- “翻译”
-- “翻译 skill”
-- “翻译这个 skill”
+- “双语化”
+- “双语化 skill”
+- “双语化这个 skill”
 - “汉化 skill”
 - “本地化 skill”
 - “创建双语 skill”
@@ -74,7 +74,7 @@ python3 scripts/skill_backup.py restore <backup-id> /path/to/skill --replace
 
 示例必须来自目标 skill 的实际能力，不得使用“示例同上”等占位文字。
 
-## 四个版本
+## 五个版本
 
 | 版本 | UI 名称 | UI 简介 | 触发描述 |
 | --- | --- | --- | --- |
@@ -82,8 +82,9 @@ python3 scripts/skill_backup.py restore <backup-id> /path/to/skill --replace
 | 2. 中文标题 + 英文原名 | 中文（English original） | 中文 | 默认中英双语 |
 | 3. 中文标题 + 英文简介 | 中文 | English | 默认中英双语 |
 | 4. 英文标题 + 中文简介 | English | 中文 | 默认中英双语 |
+| 5. 中文标题（英文原名）+ 中文简介 | 中文（English original，全角括号） | 中文 | 默认中英双语 |
 
-这里的“触发描述”指 `SKILL.md` frontmatter 的 `description`；它负责技能检索，不等同于 UI 中的 `short_description`。除非用户明确关闭英文检索，否则触发描述保留中英双语。
+默认使用版本 5。这里的“触发描述”指 `SKILL.md` frontmatter 的 `description`；它负责技能检索，不等同于 UI 中的 `short_description`。除非用户明确关闭英文检索，否则触发描述保留中英双语。
 
 ## 名称规则
 
@@ -116,7 +117,7 @@ python3 scripts/validate_bilingual_skill.py /path/to/skill \
 
 - frontmatter `name` 和 `description`；
 - `agents/openai.yaml` 的显示名称和简介；
-- 四个版本与用户选择是否一致；
+- 五个版本与用户选择是否一致；
 - 用户指定入口是否逐字符一致；
 - 软链接是否指向唯一真实目录；
 - 是否残留旧名称或旧路径。
